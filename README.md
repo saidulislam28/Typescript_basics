@@ -1,5 +1,6 @@
 **How does TypeScript help in improving code quality and project maintainability?**
-=> Typescript is powerful programming language that can improve code maintainability, more efficient and strong typing system, advance features and readability.
+
+ Typescript is powerful programming language that can improve code maintainability, more efficient and strong typing system, advance features and readability.
 
 *Strong Typing System*
 With TypeScript, you can set what type of data a variable should have — like number, string, or object. This helps find errors before you even run the code. You don’t have to guess what kind of data you’re working with. It shows suggestions and makes coding faster.
