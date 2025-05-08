@@ -1,22 +1,17 @@
-function formatString(input: string, toUpper?: boolean): string {
+function formatString(input: string, toUpper: boolean): string {
   if (toUpper === true || toUpper === undefined) {
-    console.log(input.toUpperCase());
-  } else {
-    console.log(input.toLowerCase());
-  }
-  return input;
+    return(input.toUpperCase());
+  } 
+  return input.toLowerCase();
 }
 
-const books = [
-  { title: "Book A", rating: 4.5 },
-  { title: "Book B", rating: 3 },
-  { title: "Book C", rating: 5.0 },
-];
+type Items = { title: string; rating: number }[];
+
 function filterByRating(
-  items: { title: string; rating: number }[]
-): { title: string; rating: number }[] {
-  const filteredBooks: { title: string; rating: number }[] = items.filter(
-    (item: { title: string; rating: number }) => item.rating >= 4
+  items: Items
+): Items {
+  const filteredBooks: Items = items.filter(
+    (item) => item.rating >= 4
   );
   return filteredBooks;
 }
@@ -30,24 +25,23 @@ class Vehicle {
   private make: string;
   year: number;
 
-  constructor(make: string, year: number) {
+  constructor(make: string, year: number){
     this.make = make;
     this.year = year;
   }
   getInfo() {
-    console.log(`make: ${this.make} year: ${this.year}`);
+    return (`make: ${this.make} year: ${this.year}`);
   }
 }
 
 class Car extends Vehicle {
   private model: string;
-
   constructor(model: string, year: number, make: string) {
     super(make, year);
     this.model = model;
   }
   getModel() {
-    console.log(`Model: ${this.model}`);
+    return (`Model: ${this.model}`);
   }
 }
 
@@ -65,18 +59,15 @@ interface Product {
 }
 
 function getMostExpensiveProduct(products: Product[]): Product | null {
-  const result = products.reduce((max, curr) =>
-    curr.price > max.price ? curr : max
-  );
-  return result;
+  if (products.length) {
+    const result = products.reduce((max, curr) =>
+      curr.price > max.price ? curr : max
+    );
+    return result;
+  }
+  return null;
 }
-const products = [
-  { name: "Pen", price: 10 },
-  { name: "Bag", price: 80 },
-  { name: "Notebook", price: 25 },
-  { name: "Bag", price: 50 },
-];
-getMostExpensiveProduct(products);
+
 
 enum Day {
   Monday,
@@ -96,7 +87,7 @@ async function squareAsync(n: number): Promise<number> {
   if (n >= 0) {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(n ** 2);
+        resolve(n * n);
       }, 1000);
     });
   } else {
